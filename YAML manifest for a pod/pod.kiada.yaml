@@ -4,7 +4,7 @@ metadata:
   name: kiada
 spec:
   containers:
-    name: kiada
+  - name: kiada
     image: lisping/kiada:0.1
     ports:
-      ContainerPort: 8080
+    - containerPort: 8080
