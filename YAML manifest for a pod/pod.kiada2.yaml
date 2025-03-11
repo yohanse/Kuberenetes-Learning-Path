@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: pod
+spec:
+  containers:
+    - name: kiada
+      images: luksa/kiada:0.2
+      stdin: true
+      ports:
+        - containerPort: 8080
