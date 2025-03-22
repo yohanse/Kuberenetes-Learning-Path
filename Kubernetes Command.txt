@@ -1,0 +1,43 @@
+Kubernetes Command
+
+kubectl get nodes                                                                           ---> Retrieves list of objects
+kubectl get deployments                                                                     ---> list all Deployment objects
+kubectl get pods                                                                            ---> Retrieves list of pods
+kubectl get services                                                                        ---> To retrieve list of services
+kubectl get events
+
+kubectl describe node <name>                                                                ---> Retrieves additional details
+kubectl describe pode <name>                                                                ---> Retrieves additional details
+
+
+kubectl -n kubernetes-dashboard port-forward svc/kubernetes-dashboard-kong-proxy 8443:443   ---> To access Dashboard run
+minikube dashboard                                                                          ---> To access Dashboard run
+
+kubectl create deployment <deloyment name> --image=<imagename>                              ---> deploy the app in Kubernetes cluster
+kubectl expose deployment kiada --type=LoadBalancer --port 8080                             ---> To make it accessible externally
+kubectl scale deployment kiada --replicas=3                                                 ---> To scale out
+
+minikube service <pod name> --url                                                           ---> To find out the url it exposes
+kubectl explain node.spec                                                                   ---> To explain some keys
+
+kubectl apply -f pod.kiada.yaml                                    ---> Creating objects by applying the manifest file to the cluster
+
+Connecting to pod
+minikube ssh                                                       ---> To log in to one for the worker node
+kubectl run --image=curlimages/curl -it --restart=Never --rm curl <Ip>  ---> To create pod that 'Connecting from a one-off client pod'
+kubectl port-forward <pod name> <pod port>                             ---> Connecting pods via kubectl por forwarding
+
+
+kubectl logs <pod name>                                               ---> To Retrieve a pod’s log with kubectl logs
+kubectl logs <pod name> -f                                            ---> To Stream logs
+
+kubectl cp /tmp/index.html kiada:html/                                ---> To copy file
+kubectl exec -it <pod name> -- bash                                   ---> To run an interactive shell in the container
+
+kubectl attach <pod name>                                             ---> To attach to running container
+kubectl attach -i <pod name>                 ---> -i in the command. It instructs kubectl to pass its standard input to the container.
+
+kubectl delete pod <pod name>
+kubectl delete -f <pod yaml file position>
+kubectl delete pod --all
+kubectl delete all --all
