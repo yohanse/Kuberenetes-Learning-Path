@@ -6,7 +6,7 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  storageClassName: ""
+  storageClassName: ""     # To bind a pre-provisioned persistent volume to this claim instead of provisioning a new one.
   accessModes:
   - ReadWriteOnce
   volumeName: quiz-data

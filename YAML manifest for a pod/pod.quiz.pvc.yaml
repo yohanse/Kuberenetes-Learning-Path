@@ -4,7 +4,7 @@ metadata:
   name: quiz-pvc
 spec:
   volumes:
-  - name: quiz-data
+  - name: quiz-data-default
     persistentVolumeClaim: 
       claimName: quiz-data
 
@@ -18,5 +18,5 @@ spec:
   - name: mongo
     image: mongo
     volumeMounts:
-    - name: quiz-data
+    - name: quiz-data-default
       mountPath: /data/db
