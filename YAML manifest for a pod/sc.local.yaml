@@ -1,0 +1,7 @@
+apiVersion: storage.K8s.io/v1
+kind: StorageClass
+metadata:
+  name: local
+spec:
+  provisioner: kubernetes.io/no-provisioner
+  volumeBindingMode: waitForFirstConsumer
