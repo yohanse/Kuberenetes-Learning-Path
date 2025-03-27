@@ -4,3 +4,4 @@ metadata:
   name: kiada-config-map
 data:
   status-message: This status message is set in the kiada-config-map.
+immutable: true  # To make it immutable so that it won't change accidentally.
