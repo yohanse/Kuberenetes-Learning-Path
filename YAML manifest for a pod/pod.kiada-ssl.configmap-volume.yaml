@@ -10,12 +10,13 @@ spec:
       - configMap:
           name: kiada-envoy-config
 
-      - secret: kiada-tls
-        items:
-        - key: tls.crt
-          path: example-com.crt
-        - key: tls.key
-          path: example-com.key
+      - secret: 
+          name: kiada-tls
+          items:
+          - key: tls.crt
+            path: example-com.crt
+          - key: tls.key
+            path: example-com.key
   
   containers:
   - name: kiada
