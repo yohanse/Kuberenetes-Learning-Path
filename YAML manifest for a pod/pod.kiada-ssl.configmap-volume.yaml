@@ -4,20 +4,28 @@ metadata:
   name: kiada-ssl
 spec:
   volumes:
-  - name: envoy-config
-    configMap:
-      name: kiada-envoy-config
-      items:
-      - key: envoy.yaml
-        path: envoy.yaml
+  - name: etc-envoy
+    projected:
+      sources:
+      - configMap:
+          name: kiada-envoy-config
+
+      - secret: kiada-tls
+        items:
+        - key: tls.crt
+          path: example-com.crt
+        - key: tls.key
+          path: example-com.key
+  
   containers:
   - name: kiada
-    image: luksa/kiada:0.2
+    image: luksa/kiada:0.4
     ports:
     - name: http
       containerPort: 8080
+
   - name: envoy
-    image: luksa/kiada-ssl-proxy:0.1
+    image: envoyproxy/envoy:v1.14.1
     ports:
     - name: https
       containerPort: 8443
@@ -26,3 +34,7 @@ spec:
     volumeMounts:
     - name: envoy-config
       mountPath: /etc/envoy
+
+    - name: cert-and-key
+      mountPath: /etc/certs
+      readOnly: true
