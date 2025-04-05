@@ -27,7 +27,7 @@ spec:
     - name: http
       containerPort: 8080
   - name: mongo
-    image: mongo:5
+    image: mongo
     volumeMounts:
     - name: quiz-data
       mountPath: /data/db
